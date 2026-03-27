@@ -1,92 +1,132 @@
 import React from 'react';
-import { Heart, Stethoscope, Users } from 'lucide-react';
+import { Box, Container, Typography, Card, CardMedia, CardContent, Avatar } from '@mui/material';
+import { Favorite, LocalHospital, People } from '@mui/icons-material';
 
 const personas = [
   {
-    icon: Heart,
+    icon: Favorite,
     title: "The daughter managing her father's diabetes",
     subtitle: "from across the city",
     image: "https://images.unsplash.com/photo-1589169011402-8b2cbd1ee593",
-    color: "var(--secondary-peach)"
+    color: "#FFB8A1"
   },
   {
-    icon: Stethoscope,
+    icon: LocalHospital,
     title: "The son coordinating his mother's",
     subtitle: "post-surgery recovery",
     image: "https://images.unsplash.com/photo-1633891119630-cb3665df5b7d",
-    color: "var(--primary-blue)"
+    color: "#4680FF"
   },
   {
-    icon: Users,
+    icon: People,
     title: "The spouse keeping track of medications,",
     subtitle: "meals, and moods every single day",
     image: "https://images.pexels.com/photos/9345676/pexels-photo-9345676.jpeg",
-    color: "var(--secondary-green)"
+    color: "#3DDC97"
   }
 ];
 
 const WhoIsThisFor = () => {
   return (
-    <section id="who-is-this-for" className="py-20 bg-white">
-      <div className="container-custom">
+    <Box id="who-is-this-for" sx={{ py: 10, bgcolor: 'white' }}>
+      <Container maxWidth="lg">
         {/* Section Header */}
-        <div className="text-center mb-16 animate-slide-up">
-          <h2 className="heading-large mb-6" style={{ color: 'var(--text-primary)' }}>
+        <Box sx={{ textAlign: 'center', mb: 8 }}>
+          <Typography variant="h2" sx={{ mb: 3 }}>
             Who Is This For?
-          </h2>
-        </div>
+          </Typography>
+        </Box>
 
         {/* Persona Cards */}
-        <div className="grid md:grid-cols-3 gap-8 mb-12">
+        <Box sx={{ 
+          display: 'grid', 
+          gridTemplateColumns: { xs: '1fr', md: 'repeat(3, 1fr)' }, 
+          gap: 4,
+          mb: 6
+        }}>
           {personas.map((persona, index) => (
-            <div 
+            <Card 
               key={index}
-              className={`card-shadow rounded-3xl overflow-hidden bg-white hover-lift animate-slide-up delay-${(index + 1) * 100}`}
+              elevation={2}
+              sx={{
+                borderRadius: 3,
+                overflow: 'hidden',
+                transition: 'all 0.3s ease',
+                '&:hover': {
+                  transform: 'translateY(-8px)',
+                  boxShadow: 4,
+                },
+              }}
             >
               {/* Image */}
-              <div className="relative h-64 overflow-hidden">
-                <img 
-                  src={persona.image}
+              <Box sx={{ position: 'relative', height: 256 }}>
+                <CardMedia
+                  component="img"
+                  height="256"
+                  image={persona.image}
                   alt={persona.title}
-                  className="w-full h-full object-cover hover-scale"
+                  sx={{
+                    transition: 'transform 0.3s ease',
+                    '&:hover': {
+                      transform: 'scale(1.05)',
+                    },
+                  }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                <Box
+                  sx={{
+                    position: 'absolute',
+                    inset: 0,
+                    background: 'linear-gradient(to top, rgba(0,0,0,0.6), transparent)',
+                  }}
+                />
                 
                 {/* Icon Badge */}
-                <div 
-                  className="absolute top-4 right-4 w-12 h-12 rounded-full flex items-center justify-center"
-                  style={{ backgroundColor: persona.color }}
+                <Avatar
+                  sx={{
+                    position: 'absolute',
+                    top: 16,
+                    right: 16,
+                    width: 48,
+                    height: 48,
+                    bgcolor: persona.color,
+                  }}
                 >
-                  <persona.icon size={24} color="white" />
-                </div>
-              </div>
+                  <persona.icon />
+                </Avatar>
+              </Box>
 
               {/* Content */}
-              <div className="p-6">
-                <h3 className="heading-small mb-2" style={{ color: 'var(--text-primary)' }}>
+              <CardContent sx={{ p: 3 }}>
+                <Typography variant="h4" sx={{ mb: 1, fontSize: '1.5rem' }}>
                   {persona.title}
-                </h3>
-                <p className="body-standard" style={{ color: 'var(--text-secondary)' }}>
+                </Typography>
+                <Typography variant="body1" color="text.secondary">
                   {persona.subtitle}
-                </p>
-              </div>
-            </div>
+                </Typography>
+              </CardContent>
+            </Card>
           ))}
-        </div>
+        </Box>
 
         {/* Closing Line */}
-        <div className="text-center animate-slide-up delay-400">
-          <p className="body-large" style={{ 
-            color: 'var(--text-primary)',
-            maxWidth: '800px',
-            margin: '0 auto',
-            fontWeight: 500
-          }}>
-            If you've ever carried someone's health in your head — <span style={{ color: 'var(--primary-orange)' }}>this is for you.</span>
-          </p>
-        </div>
-      </div>
-    </section>
+        <Box sx={{ textAlign: 'center' }}>
+          <Typography 
+            variant="body1" 
+            sx={{ 
+              fontSize: '1.25rem',
+              maxWidth: 800,
+              mx: 'auto',
+              fontWeight: 500
+            }}
+          >
+            If you've ever carried someone's health in your head —{' '}
+            <Box component="span" sx={{ color: 'secondary.main' }}>
+              this is for you.
+            </Box>
+          </Typography>
+        </Box>
+      </Container>
+    </Box>
   );
 };
 

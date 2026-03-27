@@ -1,10 +1,11 @@
 import React from 'react';
-import { UserPlus, Activity, Users2, CheckCircle } from 'lucide-react';
+import { Box, Container, Typography, Button, Avatar, Stack } from '@mui/material';
+import { PersonAdd, Timeline, Group, CheckCircle } from '@mui/icons-material';
 
 const steps = [
   {
     number: "01",
-    icon: UserPlus,
+    icon: PersonAdd,
     title: "Tell us who you're caring for",
     description: "Add their name, condition, and medications in under 60 seconds. We build a personalized care plan.",
     features: [
@@ -12,11 +13,11 @@ const steps = [
       "Personalized care recommendations",
       "Condition-specific tracking"
     ],
-    color: "var(--primary-blue)"
+    color: "#4680FF"
   },
   {
     number: "02",
-    icon: Activity,
+    icon: Timeline,
     title: "Track care together",
     description: "Daily medication reminders, symptom logging, and activity tracking. Completable in 30 seconds.",
     features: [
@@ -24,11 +25,11 @@ const steps = [
       "One-tap symptom logging",
       "Activity & mood tracking"
     ],
-    color: "var(--secondary-green)"
+    color: "#3DDC97"
   },
   {
     number: "03",
-    icon: Users2,
+    icon: Group,
     title: "Stay connected",
     description: "Your care logs create weekly health summaries for the doctor. Co-caregivers stay in the loop. Nobody carries it alone.",
     features: [
@@ -36,92 +37,104 @@ const steps = [
       "Share with doctors easily",
       "Coordinate with family"
     ],
-    color: "var(--primary-orange)"
+    color: "#FF6C14"
   }
 ];
 
 const HowItWorks = () => {
   return (
-    <section id="how-it-works" className="py-20 bg-white">
-      <div className="container-custom">
+    <Box id="how-it-works" sx={{ py: 10, bgcolor: 'white' }}>
+      <Container maxWidth="lg">
         {/* Section Header */}
-        <div className="text-center mb-16 animate-slide-up">
-          <h2 className="heading-large mb-4" style={{ color: 'var(--text-primary)' }}>
+        <Box sx={{ textAlign: 'center', mb: 8 }}>
+          <Typography variant="h2" sx={{ mb: 2 }}>
             How It Works
-          </h2>
-          <p className="body-large" style={{ color: 'var(--text-secondary)', maxWidth: '700px', margin: '0 auto' }}>
+          </Typography>
+          <Typography variant="body1" sx={{ fontSize: '1.25rem', color: 'text.secondary', maxWidth: 700, mx: 'auto' }}>
             Simple, powerful, and designed for real families managing real health challenges.
-          </p>
-        </div>
+          </Typography>
+        </Box>
 
         {/* Steps */}
-        <div className="space-y-12 max-w-4xl mx-auto">
+        <Stack spacing={6} sx={{ maxWidth: 900, mx: 'auto' }}>
           {steps.map((step, index) => (
-            <div 
+            <Box
               key={index}
-              className={`flex flex-col md:flex-row gap-8 items-start animate-slide-up delay-${(index + 1) * 100}`}
+              sx={{
+                display: 'flex',
+                flexDirection: { xs: 'column', md: 'row' },
+                gap: 4,
+                alignItems: 'flex-start',
+              }}
             >
               {/* Icon & Number */}
-              <div className="flex-shrink-0">
-                <div 
-                  className="relative w-24 h-24 rounded-2xl flex items-center justify-center"
-                  style={{ 
+              <Box sx={{ flexShrink: 0 }}>
+                <Box
+                  sx={{
+                    position: 'relative',
+                    width: 96,
+                    height: 96,
+                    borderRadius: 2,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
                     background: `linear-gradient(135deg, ${step.color} 0%, ${step.color}dd 100%)`,
-                    boxShadow: `0 10px 30px ${step.color}33`
+                    boxShadow: `0 10px 30px ${step.color}33`,
                   }}
                 >
-                  <step.icon size={40} color="white" strokeWidth={2} />
-                  <div 
-                    className="absolute -top-3 -right-3 w-10 h-10 rounded-full flex items-center justify-center text-white font-bold"
-                    style={{ backgroundColor: step.color }}
+                  <step.icon sx={{ fontSize: 40, color: 'white' }} />
+                  <Avatar
+                    sx={{
+                      position: 'absolute',
+                      top: -12,
+                      right: -12,
+                      width: 40,
+                      height: 40,
+                      bgcolor: step.color,
+                      fontWeight: 'bold',
+                    }}
                   >
                     {step.number}
-                  </div>
-                </div>
-              </div>
+                  </Avatar>
+                </Box>
+              </Box>
 
               {/* Content */}
-              <div className="flex-1">
-                <h3 className="heading-small mb-3" style={{ color: 'var(--text-primary)' }}>
+              <Box sx={{ flex: 1 }}>
+                <Typography variant="h4" sx={{ mb: 1.5 }}>
                   {step.title}
-                </h3>
-                <p className="body-standard mb-4" style={{ color: 'var(--text-secondary)' }}>
+                </Typography>
+                <Typography variant="body1" color="text.secondary" sx={{ mb: 2 }}>
                   {step.description}
-                </p>
+                </Typography>
 
                 {/* Features List */}
-                <ul className="space-y-2">
+                <Stack spacing={1}>
                   {step.features.map((feature, fIndex) => (
-                    <li key={fIndex} className="flex items-start gap-2">
-                      <CheckCircle size={20} style={{ color: step.color, marginTop: '2px' }} />
-                      <span className="body-small" style={{ color: 'var(--text-secondary)' }}>
+                    <Box key={fIndex} sx={{ display: 'flex', alignItems: 'flex-start', gap: 1 }}>
+                      <CheckCircle sx={{ fontSize: 20, color: step.color, mt: 0.25 }} />
+                      <Typography variant="body2" color="text.secondary">
                         {feature}
-                      </span>
-                    </li>
+                      </Typography>
+                    </Box>
                   ))}
-                </ul>
-              </div>
-
-              {/* Visual Connector (except last item) */}
-              {index < steps.length - 1 && (
-                <div className="hidden md:block absolute left-12 mt-32 w-0.5 h-20 opacity-20"
-                     style={{ backgroundColor: step.color }}></div>
-              )}
-            </div>
+                </Stack>
+              </Box>
+            </Box>
           ))}
-        </div>
+        </Stack>
 
         {/* Bottom CTA */}
-        <div className="text-center mt-16 animate-slide-up delay-400">
-          <button className="btn-primary">
+        <Box sx={{ textAlign: 'center', mt: 8 }}>
+          <Button variant="contained" size="large">
             Get Started in 60 Seconds
-          </button>
-          <p className="body-small mt-4" style={{ color: 'var(--text-muted)' }}>
+          </Button>
+          <Typography variant="body2" color="text.disabled" sx={{ mt: 2 }}>
             Free for 30 days • No credit card required
-          </p>
-        </div>
-      </div>
-    </section>
+          </Typography>
+        </Box>
+      </Container>
+    </Box>
   );
 };
 

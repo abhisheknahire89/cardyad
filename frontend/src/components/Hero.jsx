@@ -1,65 +1,134 @@
 import React from 'react';
-import { ArrowRight, Smartphone } from 'lucide-react';
+import { Box, Container, Typography, Button, Stack } from '@mui/material';
+import { ArrowForward, Smartphone } from '@mui/icons-material';
 
 const Hero = () => {
   return (
-    <section id="home" className="gradient-hero min-h-screen flex items-center relative overflow-hidden">
-      {/* Background Pattern Overlay */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute inset-0" style={{
+    <Box
+      id="home"
+      sx={{
+        background: 'linear-gradient(135deg, #4680FF 0%, #FF6C14 100%)',
+        minHeight: '100vh',
+        display: 'flex',
+        alignItems: 'center',
+        position: 'relative',
+        overflow: 'hidden',
+        '&::before': {
+          content: '""',
+          position: 'absolute',
+          inset: 0,
+          opacity: 0.1,
           backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',
-          backgroundSize: '40px 40px'
-        }}></div>
-      </div>
-
-      <div className="container-custom relative z-10 py-20">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+          backgroundSize: '40px 40px',
+        },
+      }}
+    >
+      <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 10, py: 10 }}>
+        <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', md: '1fr 1fr' }, gap: 6, alignItems: 'center' }}>
           {/* Left Content */}
-          <div className="text-white animate-slide-up">
-            <h1 className="display-hero mb-6">
+          <Box sx={{ color: 'white' }}>
+            <Typography variant="h1" sx={{ mb: 3, color: 'white' }}>
               Care for the one who Cares.
-            </h1>
+            </Typography>
             
-            <p className="body-large mb-8 opacity-95">
+            <Typography variant="body1" sx={{ mb: 4, opacity: 0.95, fontSize: '1.25rem' }}>
               When someone you love is managing a health condition, the whole family carries the weight. CareDyad helps you track their health, stay in sync with their doctor, and take care of yourself too.
-            </p>
+            </Typography>
 
-            <div className="flex flex-col sm:flex-row gap-4 mb-6">
-              <button className="btn-primary bg-white text-blue-600 hover:bg-gray-50">
-                <Smartphone size={20} />
+            <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} sx={{ mb: 3 }}>
+              <Button
+                variant="contained"
+                size="large"
+                startIcon={<Smartphone />}
+                endIcon={<ArrowForward />}
+                sx={{
+                  background: 'white',
+                  color: '#4680FF',
+                  '&:hover': {
+                    background: '#f5f5f5',
+                  },
+                }}
+              >
                 Start Your Free Care Plan
-                <ArrowRight size={20} />
-              </button>
-            </div>
+              </Button>
+            </Stack>
 
-            <p className="body-small opacity-80 flex items-center gap-2">
-              <Smartphone size={16} />
-              Available on Android & iOS
-            </p>
-          </div>
+            <Stack direction="row" spacing={1} alignItems="center" sx={{ opacity: 0.8 }}>
+              <Smartphone sx={{ fontSize: 16 }} />
+              <Typography variant="body2">
+                Available on Android & iOS
+              </Typography>
+            </Stack>
+          </Box>
 
           {/* Right Image */}
-          <div className="animate-slide-up delay-200">
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl hover-lift">
+          <Box>
+            <Box
+              sx={{
+                position: 'relative',
+                borderRadius: 3,
+                overflow: 'hidden',
+                boxShadow: 10,
+                transition: 'transform 0.3s ease',
+                '&:hover': {
+                  transform: 'translateY(-8px)',
+                },
+              }}
+            >
               <img 
                 src="https://images.unsplash.com/photo-1680759291255-f009988333cf?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA3MDB8MHwxfHNlYXJjaHwyfHxJbmRpYW4lMjBmYW1pbHklMjBlbGRlcmx5JTIwY2FyZXxlbnwwfHx8fDE3NzQ1ODYxMjV8MA&ixlib=rb-4.1.0&q=85"
                 alt="Indian family caregiving moment"
-                className="w-full h-auto object-cover"
+                style={{ width: '100%', height: 'auto', display: 'block' }}
               />
-              {/* Subtle gradient overlay for depth */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
-            </div>
-          </div>
-        </div>
+              <Box
+                sx={{
+                  position: 'absolute',
+                  inset: 0,
+                  background: 'linear-gradient(to top, rgba(0,0,0,0.2), transparent)',
+                }}
+              />
+            </Box>
+          </Box>
+        </Box>
 
         {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <div className="w-6 h-10 border-2 border-white/50 rounded-full flex items-start justify-center p-2">
-            <div className="w-1 h-2 bg-white rounded-full"></div>
-          </div>
-        </div>
-      </div>
-    </section>
+        <Box
+          sx={{
+            position: 'absolute',
+            bottom: 32,
+            left: '50%',
+            transform: 'translateX(-50%)',
+            animation: 'bounce 2s infinite',
+            '@keyframes bounce': {
+              '0%, 100%': { transform: 'translateX(-50%) translateY(0)' },
+              '50%': { transform: 'translateX(-50%) translateY(-10px)' },
+            },
+          }}
+        >
+          <Box
+            sx={{
+              width: 24,
+              height: 40,
+              border: '2px solid rgba(255,255,255,0.5)',
+              borderRadius: 12,
+              display: 'flex',
+              alignItems: 'flex-start',
+              justifyContent: 'center',
+              p: 1,
+            }}
+          >
+            <Box
+              sx={{
+                width: 4,
+                height: 8,
+                bgcolor: 'white',
+                borderRadius: 2,
+              }}
+            />
+          </Box>
+        </Box>
+      </Container>
+    </Box>
   );
 };
 

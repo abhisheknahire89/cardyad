@@ -1,142 +1,174 @@
 import React from 'react';
-import { MapPin, Phone, Mail, Heart } from 'lucide-react';
+import { Box, Container, Typography, Grid, Link } from '@mui/material';
+import { LocationOn, Phone, Email, Favorite } from '@mui/icons-material';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-gray-900 text-white py-16">
-      <div className="container-custom">
-        <div className="grid md:grid-cols-4 gap-12 mb-12">
+    <Box component="footer" sx={{ bgcolor: '#1A1A1A', color: 'white', py: 8 }}>
+      <Container maxWidth="lg">
+        <Grid container spacing={6} sx={{ mb: 6 }}>
           {/* Brand Column */}
-          <div className="md:col-span-2">
-            <h3 className="text-2xl font-bold mb-4" style={{ fontFamily: 'Poppins' }}>
+          <Grid item xs={12} md={6}>
+            <Typography variant="h4" sx={{ mb: 2, fontFamily: 'Poppins' }}>
               CareDyad
-            </h3>
-            <p className="body-small mb-4 opacity-80">
+            </Typography>
+            <Typography variant="body2" sx={{ mb: 2, opacity: 0.8 }}>
               Relational Care. Profound Impact.
-            </p>
-            <p className="body-small opacity-70 max-w-md">
+            </Typography>
+            <Typography variant="body2" sx={{ opacity: 0.7, maxWidth: 500 }}>
               Supporting caregivers and families managing chronic health conditions through evidence-based dyadic health solutions.
-            </p>
-          </div>
+            </Typography>
+          </Grid>
 
           {/* Quick Links */}
-          <div>
-            <h4 className="font-semibold mb-4" style={{ fontFamily: 'Poppins' }}>Quick Links</h4>
-            <ul className="space-y-2">
-              <li>
-                <a href="#home" className="body-small opacity-70 hover:opacity-100 hover:underline">
-                  Home
-                </a>
-              </li>
-              <li>
-                <a href="#who-is-this-for" className="body-small opacity-70 hover:opacity-100 hover:underline">
-                  Who Is This For
-                </a>
-              </li>
-              <li>
-                <a href="#how-it-works" className="body-small opacity-70 hover:opacity-100 hover:underline">
-                  How It Works
-                </a>
-              </li>
-              <li>
-                <a href="#features" className="body-small opacity-70 hover:opacity-100 hover:underline">
-                  Features
-                </a>
-              </li>
-              <li>
-                <a href="#for-hospitals" className="body-small opacity-70 hover:opacity-100 hover:underline">
-                  For Hospitals
-                </a>
-              </li>
-            </ul>
-          </div>
+          <Grid item xs={12} sm={6} md={3}>
+            <Typography variant="h6" sx={{ mb: 2, fontFamily: 'Poppins' }}>
+              Quick Links
+            </Typography>
+            <Box component="ul" sx={{ listStyle: 'none', p: 0, m: 0 }}>
+              {[
+                { name: 'Home', href: '#home' },
+                { name: 'Who Is This For', href: '#who-is-this-for' },
+                { name: 'How It Works', href: '#how-it-works' },
+                { name: 'Features', href: '#features' },
+                { name: 'For Hospitals', href: '#for-hospitals' },
+              ].map((link, index) => (
+                <Box component="li" key={index} sx={{ mb: 1 }}>
+                  <Link
+                    href={link.href}
+                    sx={{
+                      color: 'rgba(255, 255, 255, 0.7)',
+                      textDecoration: 'none',
+                      fontSize: '0.875rem',
+                      '&:hover': {
+                        color: 'white',
+                        textDecoration: 'underline',
+                      },
+                    }}
+                  >
+                    {link.name}
+                  </Link>
+                </Box>
+              ))}
+            </Box>
+          </Grid>
 
           {/* Resources */}
-          <div>
-            <h4 className="font-semibold mb-4" style={{ fontFamily: 'Poppins' }}>Resources</h4>
-            <ul className="space-y-2">
-              <li>
-                <a href="#research" className="body-small opacity-70 hover:opacity-100 hover:underline">
-                  Our Research
-                </a>
-              </li>
-              <li>
-                <a href="#science" className="body-small opacity-70 hover:opacity-100 hover:underline">
-                  The Science
-                </a>
-              </li>
-              <li>
-                <a href="#story" className="body-small opacity-70 hover:opacity-100 hover:underline">
-                  Our Story
-                </a>
-              </li>
-              <li>
-                <a href="#privacy" className="body-small opacity-70 hover:opacity-100 hover:underline">
-                  Privacy Policy
-                </a>
-              </li>
-              <li>
-                <a href="#terms" className="body-small opacity-70 hover:opacity-100 hover:underline">
-                  Terms of Service
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
+          <Grid item xs={12} sm={6} md={3}>
+            <Typography variant="h6" sx={{ mb: 2, fontFamily: 'Poppins' }}>
+              Resources
+            </Typography>
+            <Box component="ul" sx={{ listStyle: 'none', p: 0, m: 0 }}>
+              {[
+                { name: 'Our Research', href: '#research' },
+                { name: 'The Science', href: '#science' },
+                { name: 'Our Story', href: '#story' },
+                { name: 'Privacy Policy', href: '#privacy' },
+                { name: 'Terms of Service', href: '#terms' },
+              ].map((link, index) => (
+                <Box component="li" key={index} sx={{ mb: 1 }}>
+                  <Link
+                    href={link.href}
+                    sx={{
+                      color: 'rgba(255, 255, 255, 0.7)',
+                      textDecoration: 'none',
+                      fontSize: '0.875rem',
+                      '&:hover': {
+                        color: 'white',
+                        textDecoration: 'underline',
+                      },
+                    }}
+                  >
+                    {link.name}
+                  </Link>
+                </Box>
+              ))}
+            </Box>
+          </Grid>
+        </Grid>
 
         {/* Contact Information */}
-        <div className="grid md:grid-cols-2 gap-8 pt-8 border-t border-gray-700">
+        <Grid container spacing={4} sx={{ pt: 4, borderTop: '1px solid rgba(255, 255, 255, 0.1)' }}>
           {/* USA Office */}
-          <div>
-            <h5 className="font-semibold mb-3 flex items-center gap-2">
-              <MapPin size={18} style={{ color: 'var(--primary-blue)' }} />
+          <Grid item xs={12} md={6}>
+            <Typography variant="subtitle1" sx={{ mb: 1.5, fontWeight: 600, display: 'flex', alignItems: 'center', gap: 1 }}>
+              <LocationOn sx={{ fontSize: 18, color: '#4680FF' }} />
               USA Office
-            </h5>
-            <p className="body-small opacity-70 mb-2">
+            </Typography>
+            <Typography variant="body2" sx={{ opacity: 0.7, mb: 1 }}>
               21165 Whitfield Pl, Suite #106<br />
               Sterling, VA 20165
-            </p>
-            <p className="body-small opacity-70 flex items-center gap-2">
-              <Phone size={16} /> +1 571 934 7292
-            </p>
-          </div>
+            </Typography>
+            <Typography variant="body2" sx={{ opacity: 0.7, display: 'flex', alignItems: 'center', gap: 1 }}>
+              <Phone sx={{ fontSize: 16 }} /> +1 571 934 7292
+            </Typography>
+          </Grid>
 
           {/* India Office */}
-          <div>
-            <h5 className="font-semibold mb-3 flex items-center gap-2">
-              <MapPin size={18} style={{ color: 'var(--primary-orange)' }} />
+          <Grid item xs={12} md={6}>
+            <Typography variant="subtitle1" sx={{ mb: 1.5, fontWeight: 600, display: 'flex', alignItems: 'center', gap: 1 }}>
+              <LocationOn sx={{ fontSize: 18, color: '#FF6C14' }} />
               India Office
-            </h5>
-            <p className="body-small opacity-70 mb-2">
+            </Typography>
+            <Typography variant="body2" sx={{ opacity: 0.7, mb: 1 }}>
               Madhapur<br />
               Hyderabad, Telangana 500081
-            </p>
-            <p className="body-small opacity-70 flex items-center gap-2">
-              <Phone size={16} /> +91 910 085 6540
-            </p>
-          </div>
-        </div>
+            </Typography>
+            <Typography variant="body2" sx={{ opacity: 0.7, display: 'flex', alignItems: 'center', gap: 1 }}>
+              <Phone sx={{ fontSize: 16 }} /> +91 910 085 6540
+            </Typography>
+          </Grid>
+        </Grid>
 
         {/* Email */}
-        <div className="mt-6 pt-6 border-t border-gray-700">
-          <p className="body-small opacity-70 flex items-center gap-2 justify-center">
-            <Mail size={16} />
-            <a href="mailto:info@dyadic.health" className="hover:underline">
+        <Box sx={{ mt: 3, pt: 3, borderTop: '1px solid rgba(255, 255, 255, 0.1)' }}>
+          <Typography
+            variant="body2"
+            sx={{
+              opacity: 0.7,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: 1,
+            }}
+          >
+            <Email sx={{ fontSize: 16 }} />
+            <Link
+              href="mailto:info@dyadic.health"
+              sx={{
+                color: 'rgba(255, 255, 255, 0.7)',
+                textDecoration: 'none',
+                '&:hover': {
+                  textDecoration: 'underline',
+                },
+              }}
+            >
               info@dyadic.health
-            </a>
-          </p>
-        </div>
+            </Link>
+          </Typography>
+        </Box>
 
         {/* Bottom Bar */}
-        <div className="mt-12 pt-8 border-t border-gray-700 text-center">
-          <p className="body-small opacity-60 flex items-center justify-center gap-2">
-            © {currentYear} Dyadic Health. All rights reserved. Made with <Heart size={14} fill="var(--primary-orange)" style={{ color: 'var(--primary-orange)' }} /> for caregivers everywhere.
-          </p>
-        </div>
-      </div>
-    </footer>
+        <Box sx={{ mt: 6, pt: 4, borderTop: '1px solid rgba(255, 255, 255, 0.1)', textAlign: 'center' }}>
+          <Typography
+            variant="body2"
+            sx={{
+              opacity: 0.6,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: 1,
+              flexWrap: 'wrap',
+            }}
+          >
+            © {currentYear} Dyadic Health. All rights reserved. Made with{' '}
+            <Favorite sx={{ fontSize: 14, color: '#FF6C14' }} /> for caregivers everywhere.
+          </Typography>
+        </Box>
+      </Container>
+    </Box>
   );
 };
 

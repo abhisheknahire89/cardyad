@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Building2, ArrowRight, CheckCircle } from 'lucide-react';
+import { Box, Container, Typography, Card, CardContent, Button, TextField, Avatar, Grid, Stack } from '@mui/material';
+import { Business, ArrowForward, CheckCircle } from '@mui/icons-material';
 
 const ForHospitals = () => {
   const [email, setEmail] = useState('');
@@ -17,110 +18,130 @@ const ForHospitals = () => {
   };
 
   return (
-    <section id="for-hospitals" className="py-20 bg-white">
-      <div className="container-custom">
-        <div className="max-w-5xl mx-auto">
-          <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-3xl p-12 md:p-16 card-shadow">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              {/* Left Content */}
-              <div className="animate-slide-up">
-                <div 
-                  className="inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-6"
-                  style={{ background: 'linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-purple) 100%)' }}
-                >
-                  <Building2 size={32} color="white" />
-                </div>
+    <Box id="for-hospitals" sx={{ py: 10, bgcolor: 'white' }}>
+      <Container maxWidth="lg">
+        <Card
+          elevation={0}
+          sx={{
+            background: 'linear-gradient(135deg, rgba(70, 128, 255, 0.05) 0%, rgba(176, 153, 203, 0.05) 100%)',
+            borderRadius: 3,
+            p: { xs: 4, md: 8 },
+          }}
+        >
+          <Grid container spacing={6} alignItems="center">
+            {/* Left Content */}
+            <Grid item xs={12} md={6}>
+              <Avatar
+                sx={{
+                  width: 64,
+                  height: 64,
+                  borderRadius: 2,
+                  background: 'linear-gradient(135deg, #4680FF 0%, #B099CB 100%)',
+                  mb: 3,
+                }}
+              >
+                <Business sx={{ fontSize: 32 }} />
+              </Avatar>
 
-                <h2 className="heading-medium mb-4" style={{ color: 'var(--text-primary)' }}>
-                  For Healthcare Providers
-                </h2>
+              <Typography variant="h3" sx={{ mb: 2 }}>
+                For Healthcare Providers
+              </Typography>
 
-                <p className="body-large mb-6" style={{ color: 'var(--text-secondary)' }}>
-                  Are you a hospital or clinic? Partner with us to support your patients' families after discharge.
-                </p>
+              <Typography variant="body1" sx={{ mb: 3, fontSize: '1.25rem' }}>
+                Are you a hospital or clinic? Partner with us to support your patients' families after discharge.
+              </Typography>
 
-                <p className="body-standard mb-8" style={{ color: 'var(--text-secondary)' }}>
-                  CareDyad gives you visibility into your patient's home health between appointments — logged by the people who see them every day.
-                </p>
+              <Typography variant="body1" color="text.secondary" sx={{ mb: 4 }}>
+                CareDyad gives you visibility into your patient's home health between appointments — logged by the people who see them every day.
+              </Typography>
 
-                {/* Benefits List */}
-                <ul className="space-y-3 mb-8">
-                  {[
-                    "Real-time patient data from home caregivers",
-                    "Reduced readmission rates",
-                    "Better post-discharge outcomes",
-                    "Seamless care coordination"
-                  ].map((benefit, index) => (
-                    <li key={index} className="flex items-start gap-3">
-                      <CheckCircle size={20} style={{ color: 'var(--secondary-green)', marginTop: '2px' }} />
-                      <span className="body-standard" style={{ color: 'var(--text-secondary)' }}>
-                        {benefit}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              {/* Benefits List */}
+              <Stack spacing={1.5} sx={{ mb: 4 }}>
+                {[
+                  "Real-time patient data from home caregivers",
+                  "Reduced readmission rates",
+                  "Better post-discharge outcomes",
+                  "Seamless care coordination"
+                ].map((benefit, index) => (
+                  <Box key={index} sx={{ display: 'flex', alignItems: 'flex-start', gap: 1.5 }}>
+                    <CheckCircle sx={{ fontSize: 20, color: 'success.main', mt: 0.25 }} />
+                    <Typography variant="body1" color="text.secondary">
+                      {benefit}
+                    </Typography>
+                  </Box>
+                ))}
+              </Stack>
+            </Grid>
 
-              {/* Right Form */}
-              <div className="animate-slide-up delay-200">
-                <div className="bg-white rounded-2xl p-8 card-shadow">
-                  <h3 className="heading-small mb-2" style={{ color: 'var(--text-primary)' }}>
+            {/* Right Form */}
+            <Grid item xs={12} md={6}>
+              <Card elevation={2} sx={{ p: 4 }}>
+                <CardContent sx={{ p: 0, '&:last-child': { pb: 0 } }}>
+                  <Typography variant="h4" sx={{ mb: 1 }}>
                     Learn About Hospital Partnerships
-                  </h3>
-                  <p className="body-small mb-6" style={{ color: 'var(--text-muted)' }}>
+                  </Typography>
+                  <Typography variant="body2" color="text.disabled" sx={{ mb: 3 }}>
                     Get in touch to explore how CareDyad can support your patients and their families.
-                  </p>
+                  </Typography>
 
                   {!submitted ? (
-                    <form onSubmit={handleSubmit} className="space-y-4">
-                      <input
+                    <Box component="form" onSubmit={handleSubmit}>
+                      <TextField
+                        fullWidth
                         type="email"
                         placeholder="Enter your email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         required
-                        className="form-input"
+                        sx={{ mb: 2 }}
                       />
                       
-                      <button 
+                      <Button 
                         type="submit"
-                        className="btn-primary w-full"
+                        variant="contained"
+                        fullWidth
+                        size="large"
+                        endIcon={<ArrowForward />}
                       >
                         Request Partnership Info
-                        <ArrowRight size={20} />
-                      </button>
-                    </form>
+                      </Button>
+                    </Box>
                   ) : (
-                    <div className="text-center py-8">
-                      <div 
-                        className="inline-flex items-center justify-center w-16 h-16 rounded-full mb-4"
-                        style={{ backgroundColor: 'var(--secondary-green)', opacity: 0.2 }}
+                    <Box sx={{ textAlign: 'center', py: 4 }}>
+                      <Avatar
+                        sx={{
+                          width: 64,
+                          height: 64,
+                          bgcolor: 'rgba(61, 220, 151, 0.2)',
+                          mx: 'auto',
+                          mb: 2,
+                        }}
                       >
-                        <CheckCircle size={32} style={{ color: 'var(--secondary-green)' }} />
-                      </div>
-                      <p className="body-standard font-semibold" style={{ color: 'var(--text-primary)' }}>
+                        <CheckCircle sx={{ fontSize: 32, color: 'success.main' }} />
+                      </Avatar>
+                      <Typography variant="body1" sx={{ fontWeight: 600 }}>
                         Thank you! We'll be in touch soon.
-                      </p>
-                    </div>
+                      </Typography>
+                    </Box>
                   )}
 
-                  <p className="body-small text-center mt-4" style={{ color: 'var(--text-muted)' }}>
+                  <Typography variant="body2" color="text.disabled" sx={{ textAlign: 'center', mt: 2 }}>
                     Or email us at{' '}
-                    <a 
+                    <Box
+                      component="a"
                       href="mailto:partnerships@dyadic.health"
-                      className="font-semibold"
-                      style={{ color: 'var(--primary-blue)' }}
+                      sx={{ fontWeight: 600, color: 'primary.main', textDecoration: 'none' }}
                     >
                       partnerships@dyadic.health
-                    </a>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+                    </Box>
+                  </Typography>
+                </CardContent>
+              </Card>
+            </Grid>
+          </Grid>
+        </Card>
+      </Container>
+    </Box>
   );
 };
 

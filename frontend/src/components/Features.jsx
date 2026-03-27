@@ -1,97 +1,122 @@
 import React from 'react';
-import { Brain, Heart, Mic, Users } from 'lucide-react';
+import { Box, Container, Typography, Card, CardContent, Avatar, Grid } from '@mui/material';
+import { Psychology, FavoriteBorder, Mic, Diversity3 } from '@mui/icons-material';
 
 const features = [
   {
-    icon: Brain,
+    icon: Psychology,
     title: "Smart Care Plans",
     description: "Condition-specific medication tracking, reminders, and symptom logging tailored to your loved one's needs.",
-    gradient: "linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-purple) 100%)",
-    iconBg: "var(--primary-blue)"
+    gradient: "linear-gradient(135deg, #4680FF 0%, #B099CB 100%)",
+    iconBg: "#4680FF"
   },
   {
-    icon: Heart,
+    icon: FavoriteBorder,
     title: "Mood Check-ins",
     description: "Because your emotional health matters too. Track how you're feeling and discover what helps you stay balanced.",
-    gradient: "linear-gradient(135deg, var(--primary-orange) 0%, var(--secondary-peach) 100%)",
-    iconBg: "var(--primary-orange)"
+    gradient: "linear-gradient(135deg, #FF6C14 0%, #FFB8A1 100%)",
+    iconBg: "#FF6C14"
   },
   {
     icon: Mic,
     title: "Voice Notes",
     description: "Too busy to type? Record care updates in seconds. We'll organize them for you and your doctor.",
-    gradient: "linear-gradient(135deg, var(--secondary-green) 0%, var(--secondary-yellow) 100%)",
-    iconBg: "var(--secondary-green)"
+    gradient: "linear-gradient(135deg, #3DDC97 0%, #FFD861 100%)",
+    iconBg: "#3DDC97"
   },
   {
-    icon: Users,
+    icon: Diversity3,
     title: "Care Network",
     description: "Invite co-caregivers and connect with the doctor. Everyone stays informed. Share the load.",
-    gradient: "linear-gradient(135deg, var(--secondary-purple) 0%, var(--primary-blue) 100%)",
-    iconBg: "var(--secondary-purple)"
+    gradient: "linear-gradient(135deg, #B099CB 0%, #4680FF 100%)",
+    iconBg: "#B099CB"
   }
 ];
 
 const Features = () => {
   return (
-    <section id="features" className="py-20 bg-white">
-      <div className="container-custom">
+    <Box id="features" sx={{ py: 10, bgcolor: 'white' }}>
+      <Container maxWidth="lg">
         {/* Section Header */}
-        <div className="text-center mb-16 animate-slide-up">
-          <h2 className="heading-large mb-4" style={{ color: 'var(--text-primary)' }}>
+        <Box sx={{ textAlign: 'center', mb: 8 }}>
+          <Typography variant="h2" sx={{ mb: 2 }}>
             Everything you need, nothing you don't
-          </h2>
-          <p className="body-large" style={{ 
-            color: 'var(--text-secondary)', 
-            maxWidth: '700px', 
-            margin: '0 auto' 
-          }}>
+          </Typography>
+          <Typography variant="body1" sx={{ fontSize: '1.25rem', color: 'text.secondary', maxWidth: 700, mx: 'auto' }}>
             Built for busy caregivers who need tools that work in the real world, not just in theory.
-          </p>
-        </div>
+          </Typography>
+        </Box>
 
         {/* Feature Grid */}
-        <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        <Grid container spacing={4} sx={{ maxWidth: 1200, mx: 'auto' }}>
           {features.map((feature, index) => (
-            <div 
-              key={index}
-              className={`card-shadow rounded-3xl p-8 bg-white hover-lift animate-slide-up delay-${(index + 1) * 100}`}
-              style={{ position: 'relative', overflow: 'hidden' }}
-            >
-              {/* Background gradient accent */}
-              <div 
-                className="absolute top-0 right-0 w-32 h-32 rounded-full blur-3xl opacity-20"
-                style={{ background: feature.gradient, transform: 'translate(30%, -30%)' }}
-              ></div>
-
-              {/* Icon */}
-              <div 
-                className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 relative z-10"
-                style={{ backgroundColor: `${feature.iconBg}15` }}
+            <Grid item xs={12} md={6} key={index}>
+              <Card
+                elevation={2}
+                sx={{
+                  p: 4,
+                  position: 'relative',
+                  overflow: 'hidden',
+                  height: '100%',
+                  transition: 'all 0.3s ease',
+                  '&:hover': {
+                    transform: 'translateY(-8px)',
+                    boxShadow: 4,
+                  },
+                }}
               >
-                <feature.icon size={32} style={{ color: feature.iconBg }} strokeWidth={2} />
-              </div>
+                {/* Background gradient accent */}
+                <Box
+                  sx={{
+                    position: 'absolute',
+                    top: 0,
+                    right: 0,
+                    width: 128,
+                    height: 128,
+                    borderRadius: '50%',
+                    background: feature.gradient,
+                    opacity: 0.2,
+                    transform: 'translate(30%, -30%)',
+                    filter: 'blur(48px)',
+                  }}
+                />
 
-              {/* Content */}
-              <h3 className="heading-small mb-3 relative z-10" style={{ color: 'var(--text-primary)' }}>
-                {feature.title}
-              </h3>
-              <p className="body-standard relative z-10" style={{ color: 'var(--text-secondary)' }}>
-                {feature.description}
-              </p>
-            </div>
+                <CardContent sx={{ p: 0, position: 'relative', zIndex: 1, '&:last-child': { pb: 0 } }}>
+                  {/* Icon */}
+                  <Avatar
+                    sx={{
+                      width: 64,
+                      height: 64,
+                      borderRadius: 2,
+                      bgcolor: `${feature.iconBg}15`,
+                      mb: 3,
+                    }}
+                  >
+                    <feature.icon sx={{ fontSize: 32, color: feature.iconBg }} />
+                  </Avatar>
+
+                  {/* Content */}
+                  <Typography variant="h4" sx={{ mb: 1.5 }}>
+                    {feature.title}
+                  </Typography>
+                  <Typography variant="body1" color="text.secondary">
+                    {feature.description}
+                  </Typography>
+                </CardContent>
+              </Card>
+            </Grid>
           ))}
-        </div>
+        </Grid>
 
         {/* Bottom Note */}
-        <div className="text-center mt-16 animate-slide-up delay-500">
-          <p className="body-standard" style={{ color: 'var(--text-muted)' }}>
+        <Box sx={{ textAlign: 'center', mt: 8 }}>
+          <Typography variant="body1" color="text.disabled">
             All features work offline and sync when you're back online.<br />
             Your data stays private and encrypted.
-          </p>
-        </div>
-      </div>
-    </section>
+          </Typography>
+        </Box>
+      </Container>
+    </Box>
   );
 };
 

@@ -1,5 +1,6 @@
 import React from 'react';
-import './App.css';
+import { ThemeProvider, CssBaseline } from '@mui/material';
+import theme from './theme';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import WhoIsThisFor from './components/WhoIsThisFor';
@@ -15,20 +16,23 @@ import WhatsAppButton from './components/WhatsAppButton';
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <Hero />
-      <WhoIsThisFor />
-      <TheProblem />
-      <HowItWorks />
-      <CareTriangle />
-      <Features />
-      <SocialProof />
-      <ForHospitals />
-      <FinalCTA />
-      <Footer />
-      <WhatsAppButton />
-    </div>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <div className="App">
+        <Header />
+        <Hero />
+        <WhoIsThisFor />
+        <TheProblem />
+        <HowItWorks />
+        <CareTriangle />
+        <Features />
+        <SocialProof />
+        <ForHospitals />
+        <FinalCTA />
+        <Footer />
+        <WhatsAppButton />
+      </div>
+    </ThemeProvider>
   );
 }
 
