@@ -18,17 +18,17 @@ const ForHospitals = () => {
   };
 
   return (
-    <Box id="for-hospitals" sx={{ py: 10, bgcolor: 'white' }}>
+    <Box id="for-hospitals" sx={{ py: 12, bgcolor: 'white' }}>
       <Container maxWidth="lg">
         <Card
           elevation={0}
           sx={{
             background: 'linear-gradient(135deg, rgba(70, 128, 255, 0.05) 0%, rgba(176, 153, 203, 0.05) 100%)',
             borderRadius: 3,
-            p: { xs: 4, md: 8 },
+            p: { xs: 4, md: 10 },
           }}
         >
-          <Grid container spacing={6} alignItems="center">
+          <Grid container spacing={8} alignItems="center">
             {/* Left Content */}
             <Grid item xs={12} md={6}>
               <Avatar

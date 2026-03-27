@@ -35,11 +35,11 @@ const features = [
 
 const Features = () => {
   return (
-    <Box id="features" sx={{ py: 10, bgcolor: 'white' }}>
+    <Box id="features" sx={{ py: 12, bgcolor: 'white' }}>
       <Container maxWidth="lg">
         {/* Section Header */}
-        <Box sx={{ textAlign: 'center', mb: 8 }}>
-          <Typography variant="h2" sx={{ mb: 2 }}>
+        <Box sx={{ textAlign: 'center', mb: 10 }}>
+          <Typography variant="h2" sx={{ mb: 3 }}>
             Everything you need, nothing you don't
           </Typography>
           <Typography variant="body1" sx={{ fontSize: '1.25rem', color: 'text.secondary', maxWidth: 700, mx: 'auto' }}>

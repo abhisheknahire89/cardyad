@@ -77,7 +77,7 @@ const FinalCTA = () => {
           </Box>
 
           {/* Trust Badges */}
-          <Grid container spacing={3}>
+          <Grid container spacing={4}>
             <Grid item xs={12} md={4}>
               <Card
                 sx={{
@@ -87,8 +87,8 @@ const FinalCTA = () => {
                   border: '1px solid rgba(255, 255, 255, 0.2)',
                 }}
               >
-                <CardContent>
-                  <Typography variant="h3" sx={{ fontWeight: 700, mb: 1, color: 'white' }}>
+                <CardContent sx={{ textAlign: 'center', py: 4 }}>
+                  <Typography variant="h3" sx={{ fontWeight: 700, mb: 1.5, color: 'white' }}>
                     30 Days
                   </Typography>
                   <Typography variant="body2" sx={{ opacity: 0.9 }}>
@@ -106,8 +106,8 @@ const FinalCTA = () => {
                   border: '1px solid rgba(255, 255, 255, 0.2)',
                 }}
               >
-                <CardContent>
-                  <Typography variant="h3" sx={{ fontWeight: 700, mb: 1, color: 'white' }}>
+                <CardContent sx={{ textAlign: 'center', py: 4 }}>
+                  <Typography variant="h3" sx={{ fontWeight: 700, mb: 1.5, color: 'white' }}>
                     60 Seconds
                   </Typography>
                   <Typography variant="body2" sx={{ opacity: 0.9 }}>
@@ -125,8 +125,8 @@ const FinalCTA = () => {
                   border: '1px solid rgba(255, 255, 255, 0.2)',
                 }}
               >
-                <CardContent>
-                  <Typography variant="h3" sx={{ fontWeight: 700, mb: 1, color: 'white' }}>
+                <CardContent sx={{ textAlign: 'center', py: 4 }}>
+                  <Typography variant="h3" sx={{ fontWeight: 700, mb: 1.5, color: 'white' }}>
                     100%
                   </Typography>
                   <Typography variant="body2" sx={{ opacity: 0.9 }}>

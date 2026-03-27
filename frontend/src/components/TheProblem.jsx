@@ -4,7 +4,7 @@ import { HeartBroken, Security, AutoAwesome } from '@mui/icons-material';
 
 const TheProblem = () => {
   return (
-    <Box id="the-problem" sx={{ py: 10, bgcolor: 'background.light' }}>
+    <Box id="the-problem" sx={{ py: 12, bgcolor: 'background.light' }}>
       <Container maxWidth="md">
         {/* Main Content */}
         <Box sx={{ textAlign: 'center' }}>
@@ -14,24 +14,24 @@ const TheProblem = () => {
               height: 80,
               background: 'linear-gradient(135deg, #FFB8A1 0%, #FF6C14 100%)',
               mx: 'auto',
-              mb: 4,
+              mb: 5,
             }}
           >
             <HeartBroken sx={{ fontSize: 40 }} />
           </Avatar>
 
-          <Typography variant="h2" sx={{ mb: 4 }}>
+          <Typography variant="h2" sx={{ mb: 5 }}>
             Healthcare treats the patient.<br />
             <Box component="span" sx={{ color: 'secondary.main' }}>
               Nobody supports the person holding it all together.
             </Box>
           </Typography>
 
-          <Box sx={{ mb: 3 }}>
-            <Typography variant="body1" sx={{ mb: 2, fontSize: '1.25rem', lineHeight: 1.8 }}>
+          <Box sx={{ mb: 4 }}>
+            <Typography variant="body1" sx={{ mb: 3, fontSize: '1.25rem', lineHeight: 1.8 }}>
               You remember every tablet. You track every symptom. You translate between the doctor and the family.
             </Typography>
-            <Typography variant="body1" sx={{ mb: 2, fontSize: '1.25rem', lineHeight: 1.8 }}>
+            <Typography variant="body1" sx={{ mb: 3, fontSize: '1.25rem', lineHeight: 1.8 }}>
               And at the end of the day,{' '}
               <Box component="strong" sx={{ color: 'text.primary', fontWeight: 700 }}>
                 nobody asks how YOU are doing.
@@ -85,11 +85,11 @@ const TheProblem = () => {
           </Grid>
 
           {/* CTA */}
-          <Box sx={{ mt: 6 }}>
+          <Box sx={{ mt: 8 }}>
             <Typography variant="h3" sx={{ mb: 3, color: 'primary.main' }}>
               CareDyad changes that.
             </Typography>
-            <Typography variant="body1" color="text.disabled">
+            <Typography variant="body1" color="text.disabled" sx={{ mb: 6 }}>
               Built for the whole family, not just the patient.
             </Typography>
           </Box>

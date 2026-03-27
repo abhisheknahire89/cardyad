@@ -43,11 +43,11 @@ const steps = [
 
 const HowItWorks = () => {
   return (
-    <Box id="how-it-works" sx={{ py: 10, bgcolor: 'white' }}>
+    <Box id="how-it-works" sx={{ py: 12, bgcolor: 'white' }}>
       <Container maxWidth="lg">
         {/* Section Header */}
-        <Box sx={{ textAlign: 'center', mb: 8 }}>
-          <Typography variant="h2" sx={{ mb: 2 }}>
+        <Box sx={{ textAlign: 'center', mb: 10 }}>
+          <Typography variant="h2" sx={{ mb: 3 }}>
             How It Works
           </Typography>
           <Typography variant="body1" sx={{ fontSize: '1.25rem', color: 'text.secondary', maxWidth: 700, mx: 'auto' }}>
@@ -56,7 +56,7 @@ const HowItWorks = () => {
         </Box>
 
         {/* Steps */}
-        <Stack spacing={6} sx={{ maxWidth: 900, mx: 'auto' }}>
+        <Stack spacing={8} sx={{ maxWidth: 900, mx: 'auto', mb: 10 }}>
           {steps.map((step, index) => (
             <Box
               key={index}
@@ -125,11 +125,11 @@ const HowItWorks = () => {
         </Stack>
 
         {/* Bottom CTA */}
-        <Box sx={{ textAlign: 'center', mt: 8 }}>
+        <Box sx={{ textAlign: 'center' }}>
           <Button variant="contained" size="large">
             Get Started in 60 Seconds
           </Button>
-          <Typography variant="body2" color="text.disabled" sx={{ mt: 2 }}>
+          <Typography variant="body2" color="text.disabled" sx={{ mt: 3 }}>
             Free for 30 days • No credit card required
           </Typography>
         </Box>

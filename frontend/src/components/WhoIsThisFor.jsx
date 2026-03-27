@@ -28,10 +28,10 @@ const personas = [
 
 const WhoIsThisFor = () => {
   return (
-    <Box id="who-is-this-for" sx={{ py: 10, bgcolor: 'white' }}>
+    <Box id="who-is-this-for" sx={{ py: 12, bgcolor: 'white' }}>
       <Container maxWidth="lg">
         {/* Section Header */}
-        <Box sx={{ textAlign: 'center', mb: 8 }}>
+        <Box sx={{ textAlign: 'center', mb: 10 }}>
           <Typography variant="h2" sx={{ mb: 3 }}>
             Who Is This For?
           </Typography>

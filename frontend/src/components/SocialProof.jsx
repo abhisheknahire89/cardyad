@@ -19,10 +19,10 @@ const trustPoints = [
 
 const SocialProof = () => {
   return (
-    <Box id="social-proof" sx={{ py: 10, bgcolor: 'background.light' }}>
+    <Box id="social-proof" sx={{ py: 12, bgcolor: 'background.light' }}>
       <Container maxWidth="lg">
         {/* Trust Badges */}
-        <Grid container spacing={3} sx={{ mb: 8 }}>
+        <Grid container spacing={4} sx={{ mb: 10 }}>
           {trustPoints.map((point, index) => (
             <Grid item xs={12} md={4} key={index}>
               <Card elevation={1} sx={{ p: 3, textAlign: 'center', height: '100%' }}>

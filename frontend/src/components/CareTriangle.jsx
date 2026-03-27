@@ -6,12 +6,12 @@ const CareTriangle = () => {
     <Box 
       id="care-triangle" 
       sx={{ 
-        py: 10, 
+        py: 12, 
         background: 'linear-gradient(135deg, rgba(70, 128, 255, 0.05) 0%, rgba(255, 108, 20, 0.05) 100%)' 
       }}
     >
       <Container maxWidth="lg">
-        <Grid container spacing={6} alignItems="center">
+        <Grid container spacing={8} alignItems="center">
           {/* Visual Side */}
           <Grid item xs={12} md={6}>
             <Box>
