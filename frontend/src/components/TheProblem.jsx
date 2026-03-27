@@ -67,6 +67,43 @@ const TheProblem = () => {
               Built for the whole family, not just the patient.
             </p>
           </div>
+
+          {/* Testimonials */}
+          <div className="grid md:grid-cols-2 gap-6 mt-16">
+            {/* Testimonial 1 */}
+            <div className="bg-white rounded-2xl p-6 card-shadow animate-slide-up delay-500 relative">
+              <div className="absolute top-4 left-4 text-5xl opacity-10 font-serif" style={{ color: 'var(--primary-orange)' }}>
+                "
+              </div>
+              <p className="body-small italic mb-4 relative z-10" style={{ color: 'var(--text-secondary)' }}>
+                "Managing Amma's diabetes alone was overwhelming. Now my brother and I both get reminders, and we can see who's handling what. It's like we're finally a team."
+              </p>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full" style={{ background: 'linear-gradient(135deg, var(--secondary-peach) 0%, var(--primary-orange) 100%)' }}></div>
+                <div>
+                  <p className="font-semibold text-sm" style={{ color: 'var(--text-primary)' }}>Anita S.</p>
+                  <p className="text-xs" style={{ color: 'var(--text-muted)' }}>Bangalore</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Testimonial 2 */}
+            <div className="bg-white rounded-2xl p-6 card-shadow animate-slide-up delay-600 relative">
+              <div className="absolute top-4 left-4 text-5xl opacity-10 font-serif" style={{ color: 'var(--primary-blue)' }}>
+                "
+              </div>
+              <p className="body-small italic mb-4 relative z-10" style={{ color: 'var(--text-secondary)' }}>
+                "The mood check-ins made me realize I wasn't okay. I was so focused on Dad's health, I forgot about my own stress. This app reminded me to breathe."
+              </p>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full" style={{ background: 'linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-purple) 100%)' }}></div>
+                <div>
+                  <p className="font-semibold text-sm" style={{ color: 'var(--text-primary)' }}>Rahul M.</p>
+                  <p className="text-xs" style={{ color: 'var(--text-muted)' }}>Mumbai</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

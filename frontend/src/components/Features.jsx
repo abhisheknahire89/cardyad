@@ -39,7 +39,7 @@ const Features = () => {
         {/* Section Header */}
         <div className="text-center mb-16 animate-slide-up">
           <h2 className="heading-large mb-4" style={{ color: 'var(--text-primary)' }}>
-            Features That Actually Help
+            Everything you need, nothing you don't
           </h2>
           <p className="body-large" style={{ 
             color: 'var(--text-secondary)', 
