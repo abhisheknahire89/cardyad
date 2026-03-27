@@ -71,7 +71,7 @@ const Header = () => {
             </Box>
 
             {/* Desktop Navigation */}
-            <Box sx={{ display: { xs: 'none', lg: 'flex' }, gap: 4, mx: 'auto' }}>
+            <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 3, mx: 'auto' }}>
               {navLinks.map((link, index) => (
                 <Box
                   key={index}
@@ -81,8 +81,9 @@ const Header = () => {
                     color: isScrolled ? 'text.primary' : 'white',
                     textDecoration: 'none',
                     fontWeight: 500,
-                    fontSize: '0.875rem',
+                    fontSize: '0.9rem',
                     transition: 'opacity 0.2s ease',
+                    whiteSpace: 'nowrap',
                     '&:hover': {
                       opacity: 0.8,
                     },
@@ -94,7 +95,7 @@ const Header = () => {
             </Box>
 
             {/* CTA Button - Desktop */}
-            <Box sx={{ display: { xs: 'none', lg: 'block' } }}>
+            <Box sx={{ display: { xs: 'none', md: 'block' } }}>
               <Button variant="contained" size="medium">
                 Download App
               </Button>
@@ -103,7 +104,7 @@ const Header = () => {
             {/* Mobile Menu Button */}
             <IconButton
               sx={{
-                display: { xs: 'block', lg: 'none' },
+                display: { xs: 'block', md: 'none' },
                 color: isScrolled ? 'text.primary' : 'white',
               }}
               onClick={() => setMobileMenuOpen(true)}
