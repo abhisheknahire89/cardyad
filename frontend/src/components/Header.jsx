@@ -43,7 +43,7 @@ const Header = () => {
                 alignItems: 'center',
                 gap: 1,
                 textDecoration: 'none',
-                flexGrow: { xs: 1, lg: 0 },
+                flexGrow: { xs: 1, md: 0 },
               }}
             >
               <Avatar
