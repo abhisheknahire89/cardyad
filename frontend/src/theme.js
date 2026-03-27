@@ -159,6 +159,54 @@ const theme = createTheme({
     '0 15px 25px rgba(0,0,0,0.15), 0 5px 10px rgba(0,0,0,0.05)',
   ],
   components: {
+    MuiCssBaseline: {
+      styleOverrides: {
+        html: {
+          scrollBehavior: 'smooth',
+        },
+        '::selection': {
+          backgroundColor: '#4680FF',
+          color: 'white',
+        },
+        '::-moz-selection': {
+          backgroundColor: '#4680FF',
+          color: 'white',
+        },
+        '*:focus-visible': {
+          outline: '2px solid #4680FF',
+          outlineOffset: 2,
+        },
+        img: {
+          maxWidth: '100%',
+          height: 'auto',
+          display: 'block',
+        },
+        a: {
+          textDecoration: 'none',
+          color: 'inherit',
+        },
+        'button, a, input, textarea': {
+          transition: 'opacity 0.2s ease, color 0.2s ease, border-color 0.2s ease',
+        },
+        button: {
+          userSelect: 'none',
+          WebkitUserSelect: 'none',
+        },
+        '::-webkit-scrollbar': {
+          width: 10,
+        },
+        '::-webkit-scrollbar-track': {
+          background: '#F8F9FC',
+        },
+        '::-webkit-scrollbar-thumb': {
+          background: '#4680FF',
+          borderRadius: 5,
+          '&:hover': {
+            background: '#FF6C14',
+          },
+        },
+      },
+    },
     MuiButton: {
       styleOverrides: {
         root: {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { ThemeProvider, CssBaseline } from '@mui/material';
+import { ThemeProvider, CssBaseline, Box } from '@mui/material';
 import theme from './theme';
 import Header from './components/Header';
 import Hero from './components/Hero';
@@ -18,7 +18,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <div className="App">
+      <Box sx={{ minHeight: '100vh' }}>
         <Header />
         <Hero />
         <WhoIsThisFor />
@@ -31,7 +31,7 @@ function App() {
         <FinalCTA />
         <Footer />
         <WhatsAppButton />
-      </div>
+      </Box>
     </ThemeProvider>
   );
 }
